@@ -1,6 +1,17 @@
+require 'yaml'
+
 module Vidstick
   class Stick
+    attr_accessor :yml_file
+
     def scan
+      puts yml_file
+      config = YAML.load_file(yml_file)
+      puts config['files']
+
+      files = [""]
+      sources = ["/home/noel/dwhelper"]
+
       files.each do | file |
         actual_source = false
         sources.each do | source |

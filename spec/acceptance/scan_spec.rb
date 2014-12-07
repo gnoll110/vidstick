@@ -9,6 +9,7 @@ describe 'scan test' do
 
     it "test full scan"
       stick = Vidstick::Stick.new
+      stick.yml_file = "spec/data/config.yml"
       stick.scan
       #expect(stick.type_id).to equal 1
   end
