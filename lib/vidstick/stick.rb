@@ -8,9 +8,12 @@ module Vidstick
       puts yml_file
       config = YAML.load_file(yml_file)
       puts config['files']
+      puts config['sources']
+      puts config['dest']
 
-      files = [""]
-      sources = ["/home/noel/dwhelper"]
+      files = config['files']
+      sources = config['sources']
+      dest = config['dest']
 
       files.each do | file |
         actual_source = false

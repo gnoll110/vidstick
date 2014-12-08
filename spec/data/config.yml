@@ -1,4 +1,10 @@
 
-files: '2014-01-28 11:00:00'
+files:
+    - 'Overhead_Shrug.mp4'
+    - 'Low-Cable_High_Crossover.mp4'
 
-sources: 'spec/data'
+sources:
+      - 'spec/data/source1'
+      - 'spec/data/source2'
+
+dest: 'spec/data/dest'
