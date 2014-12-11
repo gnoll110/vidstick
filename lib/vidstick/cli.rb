@@ -12,12 +12,13 @@ module Vidstick
 
     desc "execute commands", "takes actions as per commands"
     def vidstick
-      @app = Vidstick::Application.new
-      if options[:file]
-        process_file(options[:file])
-      else
-        process_stdin
-      end
+      @app = Vidstick::Application.new options[:file]
+      @app.process
+      #if options[:file]
+      #  process_file(options[:file])
+      #else
+      #  process_stdin
+      #end
     end
 
     no_tasks do

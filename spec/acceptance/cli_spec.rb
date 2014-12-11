@@ -4,7 +4,7 @@ require 'spec_helper'
 describe Vidstick::CLI do
   describe "#vidstick" do
     context "executing instructions from a file" do
-      let(:vidstick) { Vidstick::CLI.start(["vidstick", "--file", 'data/config.yml']) }
+      let(:vidstick) { Vidstick::CLI.start(["vidstick", "--file", 'spec/data/config.yml']) }
 
       context "containing valid test files" do
         it "should build the correct dest directory" do

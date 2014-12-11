@@ -2,11 +2,16 @@ require 'yaml'
 
 module Vidstick
   class Stick
-    attr_accessor :yml_file
+    attr_reader :yml_file, :file_count
 
-    def scan
-      puts yml_file
-      config = YAML.load_file(yml_file)
+    def initialize(line)
+      @yml_file = line
+      @file_count = 0
+    end
+
+    def process
+      puts @yml_file
+      config = YAML.load_file(@yml_file)
       puts config['files']
       puts config['sources']
       puts config['dest']

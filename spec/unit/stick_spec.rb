@@ -1,16 +1,16 @@
 require 'spec_helper'
 require 'vidstick'
 
-describe 'scan test' do
-  context 'scam files' do
+describe 'process test' do
+  context 'processes 2 files' do
     #let(:stick) do
     #  Vidstick::Stick.new
     #   }
 
-    it "test full scan"
-      stick = Vidstick::Stick.new
-      stick.yml_file = "spec/data/config.yml"
-      stick.scan
-      #expect(stick.type_id).to equal 1
+    it "" do
+      stick = Vidstick::Stick.new "spec/data/config.yml"
+      stick.process
+      expect(stick.file_count).to equal 2
+    end
   end
 end

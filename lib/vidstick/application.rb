@@ -4,12 +4,12 @@ module Vidstick
   class Application
     attr_accessor :stick
 
-    def initialize
-      @stick = Vidstick::Stick.new
+    def initialize(line)
+      @stick = Vidstick::Stick.new(line)
     end
  
-    def process (line)
-      result = @stick.process(line)
+    def process
+      result = @stick.process
     end
   end
 end
