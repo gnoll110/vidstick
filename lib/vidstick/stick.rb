@@ -10,11 +10,7 @@ module Vidstick
     end
 
     def process
-      puts @yml_file
       config = YAML.load_file(@yml_file)
-      puts config['files']
-      puts config['sources']
-      puts config['dest']
 
       files = config['files']
       sources = config['sources']
@@ -22,29 +18,22 @@ module Vidstick
 
       files.each do | file |
         actual_source = false
+        file_name = file['file']
         sources.each do | source |
-          res = File.exist? source+'/'+file[0]
+          res = File.exist? source+'/'+file_name
           actual_source = source if res
         end
 
         if actual_source
-          puts Time.now.to_s+"< >"+file[0]+'< >'+file[1]
-          FileUtils.cp(actual_source+'/'+file[0], dest+'/'+file[1] )
+          locations = file['locations']
+          locations.each do | loc |
+            FileUtils.mkdir_p( dest+'/'+loc ) if !Dir.exist? dest+'/'+loc
+            FileUtils.cp(actual_source+'/'+file_name, dest+'/'+loc+'/'+file_name )
+          end
+          @file_count+=1
         end
       end
+      puts @file_count.to_s+' files copied'
     end
   end
 end
-
-#      files.each do | file |
-#        actual_source = false
-#        sources.each do | source |
-#          res = File.exist? source+'/'+file[0]
-#          actual_source = source if res
-#        end
-
-#        if actual_source
-#          puts Time.now.to_s+"< >"+file[0]+'< >'+file[1]
-#          FileUtils.cp(actual_source+'/'+file[0], dest+'/'+file[1] )
-#        end
-#      end

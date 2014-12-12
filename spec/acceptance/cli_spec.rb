@@ -15,4 +15,9 @@ describe Vidstick::CLI do
       end
     end
   end
+
+  after(:each) do
+    FileUtils.rm_rf 'spec/data/dest'
+    FileUtils.mkdir 'spec/data/dest'
+  end
 end

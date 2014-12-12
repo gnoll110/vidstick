@@ -1,7 +1,11 @@
 
 files:
-    - 'Overhead_Shrug.mp4'
-    - 'Low-Cable_High_Crossover.mp4'
+  - file: 'Overhead_Shrug.mp4'
+    locations:
+      - 'muscle'
+  - file: 'Low-Cable_High_Crossover.mp4'
+    locations:
+      - 'gym'
 
 sources:
       - 'spec/data/source1'
