@@ -29,8 +29,8 @@ module Vidstick
           locations.each do | loc |
             FileUtils.mkdir_p( dest+'/'+loc ) if !Dir.exist? dest+'/'+loc
             FileUtils.cp(actual_source+'/'+file_name, dest+'/'+loc+'/'+file_name )
+            @file_count+=1
           end
-          @file_count+=1
         end
       end
       puts @file_count.to_s+' files copied'
