@@ -14,6 +14,18 @@ describe Vidstick::CLI do
         end
       end
     end
+
+    context "executing instructions from a file inc symlinks" do
+      let(:vidstick) { Vidstick::CLI.start(["vidstick", "--file", 'spec/data/config_symlink.yml']) }
+
+      context "containing valid test files" do
+        it "should build the correct dest directory" do
+          expect($stdin).not_to receive(:gets)
+          results = capture(:stdout) { vidstick }
+          expect(results).to match(/4 files/)
+        end
+      end
+    end
   end
 
   after(:each) do

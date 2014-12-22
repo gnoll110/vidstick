@@ -1,0 +1,18 @@
+
+files:
+  - file: 'Overhead_Shrug.mp4'
+    locations:
+      - 'muscle'
+  - file: 'Low-Cable_High_Crossover.mp4'
+    locations:
+      - 'gym'
+      - 'muscle'
+  - file: 'Lying_Straight-Arm_Pulldown.mp4'
+    locations:
+      - 'muscle'
+
+sources:
+      - 'spec/data/source1'
+      - 'spec/data/source2'
+
+dest: 'spec/data/dest'
