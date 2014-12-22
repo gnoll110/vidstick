@@ -43,7 +43,7 @@ module Vidstick
         @actual_dest = dest_file_name
         FileUtils.cp(@actual_source+'/'+@file_name, @actual_dest )
       else
-        FileUtils.ln_s @actual_dest, dest_file_name
+        FileUtils.ln @actual_dest, dest_file_name
       end
       @file_count+=1
     end
